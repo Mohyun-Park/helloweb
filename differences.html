@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Seoul_national_university_emblem.svg/225px-Seoul_national_university_emblem.svg.png');
+            background-size: 30% 50%;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+        }
+
+        .left, .right {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            background-color: #ffff00;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        img {
+            display: block;
+            max-width: 200%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>Original Sentences</h2>
+            <ol id="originalList"></ol>
+        </div>
+        <div class="right">
+            <h2>Modified Sentences</h2>
+            <ol id="modifiedList"></ol>
+        </div>
+    </div>
+
+    <script>
+        // Original sentences
+        const originalSentences = [
+            "The quick brown fox jumps over the lazy dog.",
+            "The sun rises in the east.",
+            "Seoul National University is a prestigious institution."
+        ];
+
+        // Function to randomly change some words in a sentence
+        function modifySentence(sentence) {
+            const words = sentence.split(' ');
+            const modifiedWords = words.map(word => {
+                if (Math.random() < 0.3) {
+                    // Replace word with a random word from a predefined list
+                    const replacementWords = ["apple", "banana", "orange", "pear", "grape", "hello", "world", "web", "programming"];
+                    return `<span class="highlight">${replacementWords[Math.floor(Math.random() * replacementWords.length)]}</span>`;
+                } else {
+                    return word;
+                }
+            });
+            return modifiedWords.join(' ');
+        }
+
+        // Generate and display original sentences
+        const originalList = document.getElementById("originalList");
+        originalSentences.forEach(sentence => {
+            const li = document.createElement("li");
+            li.textContent = sentence;
+            originalList.appendChild(li);
+        });
+
+        // Generate and display modified sentences
+        const modifiedList = document.getElementById("modifiedList");
+        originalSentences.forEach(sentence => {
+            const modifiedSentence = modifySentence(sentence);
+            const li = document.createElement("li");
+            li.innerHTML = modifiedSentence;
+            modifiedList.appendChild(li);
+        });
+    </script>
+</body>
+</html>

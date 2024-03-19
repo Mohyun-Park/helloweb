@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Set height to 100% of viewport height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #f0f0f0; /* Light gray background color */
+            font-family: 'Indie Flower', cursive; /* Use stylish Indie Flower font */
+        }
+
+        .hello {
+            font-size: 8vw; /* Adjust font size based on viewport width */
+            color: #6af6e3; /* Greenish color for text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+            padding: 20px; /* Add padding for better readability */
+            border-radius: 10px; /* Rounded corners for the box */
+            transition: transform 0.3s ease; /* Add smooth transition effect */
+            background-color: #555555;
+        }
+
+        .hello:hover {
+            transform: scale(1.2); /* Scale up on hover for interactive effect */
+        }
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <div class="hello">
+        Hello World!
+    </div>
+</body>
+</html>
