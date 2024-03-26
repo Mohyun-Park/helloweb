@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 수제 구구단 </title>
+    </head>
+
+    <body>
+        <button id="print-1"> 1단을 출력해 주세요!</button><br>
+        <button id="print-2"> 2단을 출력해 주세요!</button><br>
+        <button id="print-3"> 3단을 출력해 주세요!</button><br>
+        <button id="print-4"> 4단을 출력해 주세요!</button><br>
+        <button id="print-5"> 5단을 출력해 주세요!</button><br>
+        <button id="print-6"> 6단을 출력해 주세요!</button><br>
+        <button id="print-7"> 7단을 출력해 주세요!</button><br>
+        <button id="print-8"> 8단을 출력해 주세요!</button><br>
+        <button id="print-9"> 9단을 출력해 주세요!</button><br>
+        
+        <p id="dantext"> 구구단 </div>
+
+        <script>
+
+            const dan1 = document.getElementById("print-1");
+            const dan2 = document.getElementById("print-2");
+            const dan3 = document.getElementById("print-3");
+            const dan4 = document.getElementById("print-4");
+            const dan5 = document.getElementById("print-5");
+            const dan6 = document.getElementById("print-6");
+            const dan7 = document.getElementById("print-7");
+            const dan8 = document.getElementById("print-8");
+            const dan9 = document.getElementById("print-9");
+
+            buttons = [dan1, dan2, dan3, dan4, dan5, dan6, dan7, dan8, dan9];
+            numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            buttons.forEach(element => {
+                let dan = parseInt(element.id.slice(-1));
+            
+                element.addEventListener("click", function(){
+                    const danElement = document.getElementById("dantext");
+                    danElement.innerHTML = "";
+                    danElement.textContent = "구구단";
+                    numbers.forEach(element => {
+                        let numtext = String(dan) + " x " + String(element) + 
+                        " = " + String(dan * element);
+
+
+                        let numElement = document.createElement("ul");
+                        numElement.textContent = numtext;
+                        danElement.appendChild(numElement);
+                    })
+                })
+            });
+        
+        </script>
+    </body>
+</html>

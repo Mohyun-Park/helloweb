@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Mockup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+
+        .calculator {
+            border: 2px solid #009688; /* Turquoise border */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #009688; /* Turquoise background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-screen {
+            height: 80px;
+            background-color: #004d40; /* Dark turquoise */
+            border-bottom: 2px solid #009688; /* Turquoise border */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 10px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+        }
+
+        .calculator-key {
+            border: none;
+            background-color: #00796b; /* Turquoise */
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+            color: #fff;
+        }
+
+        .calculator-key:hover {
+            background-color: #00695c; /* Darker turquoise on hover */
+        }
+
+        .calculator-key:active {
+            background-color: #004d40; /* Even darker turquoise on click */
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-screen" id="calculator-screen">0</div>
+        <div class="calculator-keys">
+            <button class="calculator-key" onclick="appendToScreen('7')">7</button>
+            <button class="calculator-key" onclick="appendToScreen('8')">8</button>
+            <button class="calculator-key" onclick="appendToScreen('9')">9</button>
+            <button class="calculator-key" onclick="appendToScreen('/')">/</button>
+            <button class="calculator-key" onclick="appendToScreen('4')">4</button>
+            <button class="calculator-key" onclick="appendToScreen('5')">5</button>
+            <button class="calculator-key" onclick="appendToScreen('6')">6</button>
+            <button class="calculator-key" onclick="appendToScreen('*')">*</button>
+            <button class="calculator-key" onclick="appendToScreen('1')">1</button>
+            <button class="calculator-key" onclick="appendToScreen('2')">2</button>
+            <button class="calculator-key" onclick="appendToScreen('3')">3</button>
+            <button class="calculator-key" onclick="appendToScreen('-')">-</button>
+            <button class="calculator-key" onclick="appendToScreen('0')">0</button>
+            <button class="calculator-key" onclick="appendToScreen('.')">.</button>
+            <button class="calculator-key" onclick="calculate()">=</button>
+            <button class="calculator-key" onclick="appendToScreen('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to append clicked button value to the screen
+        function appendToScreen(value) {
+            var screen = document.getElementById("calculator-screen");
+            if (screen.innerHTML === '0') {
+                screen.innerHTML = value;
+            } else {
+                screen.innerHTML += value;
+            }
+        }
+
+        // Function to calculate result when '=' button is clicked
+        function calculate() {
+            var screen = document.getElementById("calculator-screen");
+            var result = eval(screen.innerHTML); // Using eval() for simplicity (not recommended for production)
+            screen.innerHTML = result;
+        }
+    </script>
+</body>
+</html>
