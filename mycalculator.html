@@ -97,9 +97,18 @@
         }
 
         // Function to calculate result when '=' button is clicked
+
+        function calculateExpression(expression) {
+            // Create a new function using the expression as the function body
+            const func = new Function('return ' + expression);
+    
+            // Call the function to evaluate the expression
+            return func();
+}
+
         function calculate() {
             var screen = document.getElementById("calculator-screen");
-            var result = eval(screen.innerHTML); // Using eval() for simplicity (not recommended for production)
+            var result = calculateExpression(screen.innerHTML); // Using eval() for simplicity (not recommended for production)
             screen.innerHTML = result;
         }
     </script>
